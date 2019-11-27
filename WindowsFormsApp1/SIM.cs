@@ -23,12 +23,9 @@ namespace WindowsFormsApp1
         public U Second { get; set; }
     };
 
-    public class Sim
+    class Sim
     {
-        public Sim()
-        {
-        }
-        float errRate = 0.05f;
+        float errRate = 0.1f;
         int head = 0;
         // 현재위치를 심이 받아와야해
         Pair<int, int> cur = new Pair<int, int>(0, 0);
@@ -36,23 +33,13 @@ namespace WindowsFormsApp1
         int[,] map;
         // 상우하좌
         int[,] move = new int[4, 2] { { 1, 0 }, { 0, 1 }, { -1, 0 }, { 0, -1 } };
-        Random r = new Random();
         // set은 다 출력
-        public void setMap(int[,] new_map)
-        {
-            map = (int[,])new_map.Clone();
-            /*
-            for (int i = 0; i < m.GetLength(0); i++)
-                for (int j = 0; j < m.GetLength(1); j++)
-                    map[i, j] = m[i, j];
-                    */
-        }
         public bool HazardSensor()
         {
             int row = cur.First + move[head, 0];
             int col = cur.Second + move[head, 1];
-            // 3% 확률로 에러
-            if (3<r.Next(1, 100))
+            // 2를 위험지역이라고 할게
+            if (map[row, col] == 2)
                 return true;
             else
                 return false;
@@ -64,8 +51,8 @@ namespace WindowsFormsApp1
             {
                 int row = cur.First + move[i, 0];
                 int col = cur.Second + move[i, 1];
-                // 컬러블럽 확률 2%
-                if (3 > r.Next(1, 100))
+                // 1을 ColoBlob이라고 할게
+                if (map[row, col] == 1)
                     isColor[i] = true;
             }
             return isColor;
@@ -77,19 +64,19 @@ namespace WindowsFormsApp1
         // 두개는 
         public void moveForward()
         {
-            // 오작동 시 앞에 벽이면 오작동 안되게
-            if ((move[head, 0] != -1) && (move[head, 1] != -1) && (100 * errRate > r.Next(1, 100)))
-            {
-                cur.First += 2 * move[head, 0];
-                cur.Second += 2 * move[head, 1];
-            }
+            Random r = new Random();
             // 정상적으로 동작할때
-            else
+            if (100 * errRate < r.Next(1, 100))
             {
                 cur.First += move[head, 0];
                 cur.Second += move[head, 1];
             }
-
+            // 오작동 시
+            else
+            {
+                cur.First += 2 * move[head, 0];
+                cur.Second += 2 * move[head, 1];
+            }
         }
         public int rotation()
         {
@@ -98,4 +85,3 @@ namespace WindowsFormsApp1
             return head;
         }
     }
-}

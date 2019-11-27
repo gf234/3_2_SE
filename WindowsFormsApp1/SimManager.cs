@@ -8,7 +8,7 @@ namespace WindowsFormsApp1
 {
     class SimManager
     {
-        public void rotaion(int[] path) { }
+        public void rotaion() { }
         public void avoidingHazard() { }
         public void detectingColorBlob() { }
         public void compensateMotion() { }
