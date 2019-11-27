@@ -28,25 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ConsoleBox = new System.Windows.Forms.TextBox();
             this.StartBtn = new System.Windows.Forms.Button();
             this.HandlingAMap = new System.Windows.Forms.Button();
             this.PlanningAPath = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // ConsoleBox
-            // 
-            this.ConsoleBox.Location = new System.Drawing.Point(25, 20);
-            this.ConsoleBox.Multiline = true;
-            this.ConsoleBox.Name = "ConsoleBox";
-            this.ConsoleBox.Size = new System.Drawing.Size(754, 208);
-            this.ConsoleBox.TabIndex = 0;
-            // 
             // StartBtn
             // 
-            this.StartBtn.Location = new System.Drawing.Point(583, 272);
+            this.StartBtn.Location = new System.Drawing.Point(563, 73);
             this.StartBtn.Name = "StartBtn";
-            this.StartBtn.Size = new System.Drawing.Size(174, 97);
+            this.StartBtn.Size = new System.Drawing.Size(199, 154);
             this.StartBtn.TabIndex = 1;
             this.StartBtn.Text = "Start";
             this.StartBtn.UseVisualStyleBackColor = true;
@@ -54,18 +45,18 @@
             // 
             // HandlingAMap
             // 
-            this.HandlingAMap.Location = new System.Drawing.Point(34, 271);
+            this.HandlingAMap.Location = new System.Drawing.Point(49, 73);
             this.HandlingAMap.Name = "HandlingAMap";
-            this.HandlingAMap.Size = new System.Drawing.Size(194, 97);
+            this.HandlingAMap.Size = new System.Drawing.Size(199, 154);
             this.HandlingAMap.TabIndex = 2;
             this.HandlingAMap.Text = "Map";
             this.HandlingAMap.UseVisualStyleBackColor = true;
             // 
             // PlanningAPath
             // 
-            this.PlanningAPath.Location = new System.Drawing.Point(306, 271);
+            this.PlanningAPath.Location = new System.Drawing.Point(307, 73);
             this.PlanningAPath.Name = "PlanningAPath";
-            this.PlanningAPath.Size = new System.Drawing.Size(194, 97);
+            this.PlanningAPath.Size = new System.Drawing.Size(199, 154);
             this.PlanningAPath.TabIndex = 3;
             this.PlanningAPath.Text = "Path";
             this.PlanningAPath.UseVisualStyleBackColor = true;
@@ -78,17 +69,13 @@
             this.Controls.Add(this.PlanningAPath);
             this.Controls.Add(this.HandlingAMap);
             this.Controls.Add(this.StartBtn);
-            this.Controls.Add(this.ConsoleBox);
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox ConsoleBox;
         private System.Windows.Forms.Button StartBtn;
         private System.Windows.Forms.Button HandlingAMap;
         private System.Windows.Forms.Button PlanningAPath;

@@ -7,15 +7,27 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1
 {
-    Sim s = new Sim();
     class SimInterface
     {
-        public void getHazardSensor() { }
-        public void getColorBlobSensor() { }
-        public void getPositionSensor() { }
-        public void moveForward() { }
+        Sim sim = new Sim();
+        public bool getHazardSensor() {
+            return sim.HazardSensor();
+        }
+        public bool[] getColorBlobSensor() {
+            return sim.ColorBlobSensor();
+        }
+        public Pair<int,int> getPositionSensor() {
+            return sim.PositionSensor();
+        }
+        public void moveForward() {
+            sim.moveForward();
+        }
         public void rotation() {
-            s.rotation();
+            sim.rotation();
+        }
+        public void setMap(int[,] map)
+        {
+            sim.setMap(map);
         }
     }
 }
