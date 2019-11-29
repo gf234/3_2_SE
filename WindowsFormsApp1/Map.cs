@@ -14,15 +14,13 @@ namespace WindowsFormsApp1
         // 아무것도 없으면 : 0 위험지역 : 1 탐색 지점 : 2 컬러블럽 : 3
         public static int[,] map;
         // 경로는 노드의 스택 형식 ...
-        public static Stack<Node> path = new Stack<Node>();
+        public static List<Tile> path = new List<Tile>();
         // 헤드방향은 기본으로 위쪽( 0 )
         static int head = 0;
-        // start : 경로 찾을곳의 시작 위치 ... 
-        static Pair<int, int> start;
         // current : 현재 위치 ...
         static Pair<int, int> current;
         // 주요 지점 ...
-        static List<Vector2> spot = new List<Vector2>();
+        static List<Pair<int, int>> spot = new List<Pair<int, int>>();
 
 
         //////////////////////////////////////////////////멤버 함수
@@ -62,8 +60,7 @@ namespace WindowsFormsApp1
                 // 에러코드 1 : 시작점 위치 오류
                 return 1;
             }
-            // 시작점과 현재 위치 세팅
-            start = new Pair<int, int>(a, b);
+            // 현재 위치 세팅
             current = new Pair<int, int>(a, b);
 
             // 주요지점 띄어쓰기로 구분해서 저장
@@ -84,8 +81,10 @@ namespace WindowsFormsApp1
                 }
                 // 맵과 주요지점 리스트에 주요지점 추가
                 map[temp.First, temp.Second] = 2;
-                spot.Add(new Vector2(temp.First, temp.Second));
+                spot.Add(temp);
             }
+            // 경로 생성
+            createPath();
             // 정상 종료
             return 0;
         }
@@ -151,30 +150,16 @@ namespace WindowsFormsApp1
             }
         }
 
-        // 경로 생성, 생성 안될경우 return 1
+        // 맨앞에 있는 주요지점 경로 생성, 생성 안될경우 return 1
         public static int createPath()
         {
-            // 2차원 배열 map을 이용해 grid 생성...
-            List<List<Node>> grid = new List<List<Node>>();
-            for(int i = 0; i<map.GetLength(0); i++)
-            {
-                grid.Add(new List<Node>());
-                for(int j = 0; j<map.GetLength(1); j++)
-                {
-                    Node temp = new Node(new System.Numerics.Vector2(i, j), map[i, j] != 1);
-                    grid[i].Add(temp);
-                }
-            }
-            // A* 클래스 이용해서 길 생성
-            Astar astar = new Astar(grid);
+            List<Tile> Path;
 
-            Stack<Node> Path;
-
-            // 맨 앞에 있는 스팟 탐색 ...
-            Path = astar.FindPath(new System.Numerics.Vector2(start.First, start.Second), spot[0]);
+            Path = Astar.createPath(current, spot[0], map);
 
             if (Path == null) return 1; // 경로 없음
-
+            // 정상 종료
+            path = Path;
             return 0;
         }
 

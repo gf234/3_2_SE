@@ -7,151 +7,132 @@ using System.Numerics;
 
 namespace WindowsFormsApp1
 {
-    public class Node
+    public class Tile
     {
-        // Change this depending on what the desired size is for each element in the grid
-        public static int NODE_SIZE = 32;
-        public Node Parent;
-        public Vector2 Position;
-        public Vector2 Center
+        public int X { get; set; }
+        public int Y { get; set; }
+        public int F { get { return G + H; } }
+        public int G { get; private set; } // Start ~ Current
+        public int H { get; private set; } // Current ~ End
+        public Tile Parent { get; private set; }
+        public void Execute(Tile parent, Tile endTile)
         {
-            get
-            {
-                return new Vector2(Position.X + NODE_SIZE / 2, Position.Y + NODE_SIZE / 2);
-            }
+            Parent = parent;
+            G = CalcGValue(parent, this);
+            int diffX = Math.Abs(endTile.X - X);
+            int diffY = Math.Abs(endTile.Y - Y);
+            H = (diffX + diffY) * 10;
         }
-        public float DistanceToTarget;
-        public float Cost;
-        public float F
+        public static int CalcGValue(Tile parent, Tile current)
         {
-            get
+            int diffX = Math.Abs(parent.X - current.X);
+            int diffY = Math.Abs(parent.Y - current.Y);
+            int value = 10;
+            if (diffX == 1 && diffY == 1)
             {
-                if (DistanceToTarget != -1 && Cost != -1)
-                    return DistanceToTarget + Cost;
-                else
-                    return -1;
+                value = 14;
             }
-        }
-        public bool Walkable;
-
-        // 생성자
-        public Node(Vector2 pos, bool walkable)
-        {
-            Parent = null;
-            Position = pos;
-            DistanceToTarget = -1;
-            Cost = 1;
-            Walkable = walkable;
+            return parent.G + value;
         }
     }
 
-    public class Astar
-    {
-        // 2차원 그리드
-        List<List<Node>> Grid;
-        int GridRows
+    class Astar
+    {       
+        public static List<Tile> createPath(Pair<int, int> start, Pair<int, int> end, int[,] area)
         {
-            get
+            // 위험지역
+            int obstacle = 1;
+            List<List<Tile>> tiles = new List<List<Tile>>();
+            List<Tile> openList = new List<Tile>();
+            List<Tile> closeList = new List<Tile>();
+            List<Tile> path = new List<Tile>();
+            Tile startTile = null;
+            Tile targetTile = null;
+            // Initial values
+            for (int i = 0; i < area.GetLength(0); i++)
             {
-                return Grid[0].Count;
-            }
-        }
-        int GridCols
-        {
-            get
-            {
-                return Grid.Count;
-            }
-        }
-
-        // 생성자
-        public Astar(List<List<Node>> grid)
-        {
-            Grid = grid;
-        }
-
-
-        public Stack<Node> FindPath(Vector2 Start, Vector2 End)
-        {
-            Node start = new Node(new Vector2((int)(Start.X / Node.NODE_SIZE), (int)(Start.Y / Node.NODE_SIZE)), true);
-            Node end = new Node(new Vector2((int)(End.X / Node.NODE_SIZE), (int)(End.Y / Node.NODE_SIZE)), true);
-
-            Stack<Node> Path = new Stack<Node>();
-            List<Node> OpenList = new List<Node>();
-            List<Node> ClosedList = new List<Node>();
-            List<Node> adjacencies;
-            Node current = start;
-
-            // 시작점을 Open List에 추가
-            OpenList.Add(start);
-
-            while (OpenList.Count != 0 && !ClosedList.Exists(x => x.Position == end.Position))
-            {
-                current = OpenList[0];
-                OpenList.Remove(current);
-                ClosedList.Add(current);
-                adjacencies = GetAdjacentNodes(current);
-
-
-                foreach (Node n in adjacencies)
+                List<Tile> t = new List<Tile>();
+                for (int j = 0; j < area.GetLength(1); j++)
                 {
-                    // 이동할수있는것만 추가
-                    if (!ClosedList.Contains(n) && n.Walkable)
+                    Tile temp = new Tile();
+                    temp.X = i;
+                    temp.Y = j;
+                    t.Add(temp);
+                    // 주요 지점
+                    if ((i == end.First) && (j == end.Second))
                     {
-                        if (!OpenList.Contains(n))
+                        targetTile = temp;
+                    }
+                }
+                tiles.Add(t);
+            }
+            // 시작점
+            startTile = tiles[start.First][start.Second];
+            openList.Add(startTile);
+            if (targetTile == null)
+            {
+                // can not found target
+                return null;
+            }
+            Tile currentTile = null;
+            do
+            {
+                if (openList.Count == 0)
+                {
+                    break;
+                }
+                currentTile = openList.OrderBy(o => o.F).First();
+                openList.Remove(currentTile);
+                closeList.Add(currentTile);
+                if (currentTile == targetTile)
+                {
+                    break;
+                }
+                for (int i = 0; i < area.GetLength(0); i++)
+                {
+                    for (int j = 0; j < area.GetLength(1); j++)
+                    {
+                        //// 4 way
+                        bool near = (Math.Abs(currentTile.X - tiles[i][j].X) <= 1)
+                                 && (Math.Abs(currentTile.Y - tiles[i][j].Y) <= 1)
+                                 && (currentTile.Y == tiles[i][j].Y || currentTile.X == tiles[i][j].X);
+                        if (area[i, j] == obstacle
+                         || closeList.Contains(tiles[i][j])
+                         || (!near))
                         {
-                            n.Parent = current;
-                            n.DistanceToTarget = Math.Abs(n.Position.X - end.Position.X) + Math.Abs(n.Position.Y - end.Position.Y);
-                            n.Cost = 1 + n.Parent.Cost;
-                            OpenList.Add(n);
-                            OpenList = OpenList.OrderBy(node => node.F).ToList<Node>();
+                            continue;
+                        }
+                        if (!openList.Contains(tiles[i][j]))
+                        {
+                            openList.Add(tiles[i][j]);
+                            tiles[i][j].Execute(currentTile, targetTile);
+                        }
+                        else
+                        {
+                            if (Tile.CalcGValue(currentTile, tiles[i][j]) < tiles[i][j].G)
+                            {
+                                tiles[i][j].Execute(currentTile, targetTile);
+                            }
                         }
                     }
                 }
-            }
-
-            // construct path, if end was not closed return null
-            if (!ClosedList.Exists(x => x.Position == end.Position))
+            } while (currentTile != null);
+            if (currentTile != targetTile)
             {
+                // can not found root
                 return null;
             }
-
-            // if all good, return path
-            Node temp = ClosedList[ClosedList.IndexOf(current)];
-            while (temp.Parent != start && temp != null)
+            do
             {
-                Path.Push(temp);
-                temp = temp.Parent;
+                path.Add(currentTile);
+                currentTile = currentTile.Parent;
             }
-            return Path;
+            while (currentTile != null);
+            path.Reverse();
+            // 시작점은 제외
+            path.RemoveAt(0);
+            return path;
         }
 
-        private List<Node> GetAdjacentNodes(Node n)
-        {
-            List<Node> temp = new List<Node>();
-
-            int row = (int)n.Position.Y;
-            int col = (int)n.Position.X;
-
-            if (row + 1 < GridRows)
-            {
-                temp.Add(Grid[col][row + 1]);
-            }
-            if (row - 1 >= 0)
-            {
-                temp.Add(Grid[col][row - 1]);
-            }
-            if (col - 1 >= 0)
-            {
-                temp.Add(Grid[col - 1][row]);
-            }
-            if (col + 1 < GridCols)
-            {
-                temp.Add(Grid[col + 1][row]);
-            }
-
-            return temp;
-        }
     }
-
 }
