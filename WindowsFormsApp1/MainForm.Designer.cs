@@ -51,6 +51,7 @@
             this.HandlingAMap.TabIndex = 2;
             this.HandlingAMap.Text = "Map";
             this.HandlingAMap.UseVisualStyleBackColor = true;
+            this.HandlingAMap.Click += new System.EventHandler(this.HandlingAMap_Click);
             // 
             // PlanningAPath
             // 
@@ -60,6 +61,7 @@
             this.PlanningAPath.TabIndex = 3;
             this.PlanningAPath.Text = "Path";
             this.PlanningAPath.UseVisualStyleBackColor = true;
+            this.PlanningAPath.Click += new System.EventHandler(this.PlanningAPath_Click);
             // 
             // MainForm
             // 

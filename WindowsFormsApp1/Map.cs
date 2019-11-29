@@ -9,25 +9,33 @@ namespace WindowsFormsApp1
 {
     static class Map
     {
-        // 멤버 변수
+        /////////////////////////////////////////////////멤버 변수
 
         // 아무것도 없으면 : 0 위험지역 : 1 탐색 지점 : 2 컬러블럽 : 3
         public static int[,] map;
-        public static Stack<Node> path;
-        static int head;
+        // 경로는 노드의 스택 형식 ...
+        public static Stack<Node> path = new Stack<Node>();
+        // 헤드방향은 기본으로 위쪽( 0 )
+        static int head = 0;
+        // start : 경로 찾을곳의 시작 위치 ... 
         static Pair<int, int> start;
+        // current : 현재 위치 ...
         static Pair<int, int> current;
-        static List<Vector2> spot;
+        // 주요 지점 ...
+        static List<Vector2> spot = new List<Vector2>();
 
-        // 맵 크기 입력 (gui 숫자 받는거 있음) 받아서 2차원 배열 생성하는 함수.
+
+        //////////////////////////////////////////////////멤버 함수
+
+        // 맵 크기 입력 받아서 2차원 배열 생성하는 함수.
         public static int setMapInfo(int a, int b, string hazardPos)
         {
-            // 기본적으로 0으로 초기화 되는지?? 안될경우 0으로 초기화 필요...
             map = new int[a, b];
 
             // 위험지역 띄어쓰기로 구분해서 저장
             string[] hazardList = hazardPos.Split(' ');
-
+            // 짝수개가 아니면 에러
+            if (hazardList.GetLength(0) % 2 == 1) return 1;
             // 좌표로 받기 위해 2개 씩 이동
             for(int i = 0; i<hazardList.Length; i += 2)
             {
@@ -60,7 +68,8 @@ namespace WindowsFormsApp1
 
             // 주요지점 띄어쓰기로 구분해서 저장
             string[] spotList = spotPos.Split(' ');
-
+            // 짝수개가 아니면 에러
+            if (spotList.GetLength(0) % 2 == 1) return 2;
             // 좌표로 받기 위해 2개 씩 이동하면서 저장
             for (int i = 0; i < spotList.Length; i += 2)
             {
@@ -81,7 +90,7 @@ namespace WindowsFormsApp1
             return 0;
         }
 
-        // 컬러블럽 추가  +++++++++++ 위험지역이랑 겹치는 경우 처리 필요 +++++++++
+        // 컬러블럽 추가 
         public static void addColorBlob(bool[] bColorBlob)
         {
             // 상하좌우 bool값 입력 받아서 현재 기준으로 컬러블럽 추가
@@ -92,20 +101,21 @@ namespace WindowsFormsApp1
                     switch (i)
                     {
                         case 0:
-                            if (!isInMap(new Pair<int, int>(current.First + 1, current.Second))) break;
+                            // 맵의 크기를 넘어서거나, 해당 지역이 0이 아닌경우 추가 안함
+                            if ((!isInMap(new Pair<int, int>(current.First + 1, current.Second))) || (map[current.First + 1, current.Second] != 0)) break;
                             map[current.First + 1, current.Second] = 3;
                             break;
                         case 1:
-                            if (!isInMap(new Pair<int, int>(current.First, current.Second+1))) break;
-                            map[current.First, current.Second+1] = 3;
+                            if ((!isInMap(new Pair<int, int>(current.First, current.Second + 1))) || (map[current.First, current.Second + 1] != 0)) break;
+                            map[current.First, current.Second + 1] = 3;
                             break;
                         case 2:
-                            if (!isInMap(new Pair<int, int>(current.First - 1, current.Second))) break;
+                            if ((!isInMap(new Pair<int, int>(current.First - 1, current.Second))) || (map[current.First - 1, current.Second] != 0)) break;
                             map[current.First - 1, current.Second] = 3;
                             break;
                         case 3:
-                            if (!isInMap(new Pair<int, int>(current.First, current.Second - 1))) break;
-                            map[current.First, current.Second-1] = 3;
+                            if ((!isInMap(new Pair<int, int>(current.First, current.Second - 1))) || (map[current.First, current.Second - 1] != 0)) break;
+                            map[current.First, current.Second - 1] = 3;
                             break;
                     }
                 }
@@ -121,19 +131,20 @@ namespace WindowsFormsApp1
                 switch (head)
                 {
                     case 0:
-                        if (!isInMap(new Pair<int, int>(current.First + 1, current.Second))) break;
+                        // 맵의 크기를 넘어서거나, 해당 지역이 0이 아닌경우 추가 안함
+                        if ((!isInMap(new Pair<int, int>(current.First + 1, current.Second))) || (map[current.First + 1, current.Second] != 0)) break;
                         map[current.First + 1, current.Second] = 1;
                         break;
                     case 1:
-                        if (!isInMap(new Pair<int, int>(current.First, current.Second + 1))) break;
+                        if ((!isInMap(new Pair<int, int>(current.First, current.Second + 1))) || (map[current.First, current.Second + 1] != 0)) break;
                         map[current.First, current.Second + 1] = 1;
                         break;
                     case 2:
-                        if (!isInMap(new Pair<int, int>(current.First - 1, current.Second))) break;
+                        if ((!isInMap(new Pair<int, int>(current.First - 1, current.Second))) || (map[current.First - 1, current.Second] != 0)) break;
                         map[current.First - 1, current.Second] = 1;
                         break;
                     case 3:
-                        if (!isInMap(new Pair<int, int>(current.First, current.Second - 1))) break;
+                        if ((!isInMap(new Pair<int, int>(current.First, current.Second - 1))) || (map[current.First, current.Second - 1] != 0)) break;
                         map[current.First, current.Second - 1] = 1;
                         break;
                 }
@@ -143,6 +154,7 @@ namespace WindowsFormsApp1
         // 경로 생성, 생성 안될경우 return 1
         public static int createPath()
         {
+            // 2차원 배열 map을 이용해 grid 생성...
             List<List<Node>> grid = new List<List<Node>>();
             for(int i = 0; i<map.GetLength(0); i++)
             {
@@ -153,12 +165,12 @@ namespace WindowsFormsApp1
                     grid[i].Add(temp);
                 }
             }
-            // 길찾기 알고리즘 입력
+            // A* 클래스 이용해서 길 생성
             Astar astar = new Astar(grid);
 
             Stack<Node> Path;
 
-            // 맨 앞에 있는 스팟 탐색;
+            // 맨 앞에 있는 스팟 탐색 ...
             Path = astar.FindPath(new System.Numerics.Vector2(start.First, start.Second), spot[0]);
 
             if (Path == null) return 1; // 경로 없음

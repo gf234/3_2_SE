@@ -8,3 +8,15 @@ C:\git\3_2_SE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResourc
 C:\git\3_2_SE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
 C:\git\3_2_SE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\git\3_2_SE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\lee\3_2_SE\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\lee\3_2_SE\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\lee\3_2_SE\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\lee\3_2_SE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojAssemblyReference.cache
+C:\Users\lee\3_2_SE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.MainForm.resources
+C:\Users\lee\3_2_SE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.MapForm.resources
+C:\Users\lee\3_2_SE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\lee\3_2_SE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+C:\Users\lee\3_2_SE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+C:\Users\lee\3_2_SE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\lee\3_2_SE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\lee\3_2_SE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.PathForm.resources
