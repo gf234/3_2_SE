@@ -19,8 +19,8 @@ namespace WindowsFormsApp1
         public Pair<int,int> getPositionSensor() {
             return sim.PositionSensor();
         }
-        public bool moveForward() {
-            return sim.moveForward();
+        public void moveForward() {
+            sim.moveForward();
         }
         public void rotation() {
             sim.rotation();

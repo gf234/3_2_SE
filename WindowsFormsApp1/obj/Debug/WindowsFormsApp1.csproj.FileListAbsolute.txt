@@ -1,0 +1,10 @@
+C:\git\3_2_SE\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\git\3_2_SE\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\git\3_2_SE\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\git\3_2_SE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojAssemblyReference.cache
+C:\git\3_2_SE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.MainForm.resources
+C:\git\3_2_SE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\git\3_2_SE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+C:\git\3_2_SE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+C:\git\3_2_SE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\git\3_2_SE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb

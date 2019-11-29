@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Numerics;
 
 namespace WindowsFormsApp1
 {
@@ -11,11 +12,12 @@ namespace WindowsFormsApp1
         // 멤버 변수
 
         // 아무것도 없으면 : 0 위험지역 : 1 탐색 지점 : 2 컬러블럽 : 3
-        static int[,] map;
-        static int[] path;
+        public static int[,] map;
+        public static Stack<Node> path;
         static int head;
         static Pair<int, int> start;
         static Pair<int, int> current;
+        static List<Vector2> spot;
 
         // 맵 크기 입력 (gui 숫자 받는거 있음) 받아서 2차원 배열 생성하는 함수.
         public static int setMapInfo(int a, int b, string hazardPos)
@@ -71,7 +73,9 @@ namespace WindowsFormsApp1
                     // 에러코드 2 : 주요지점 위치 오류
                     return 2;
                 }
+                // 맵과 주요지점 리스트에 주요지점 추가
                 map[temp.First, temp.Second] = 2;
+                spot.Add(new Vector2(temp.First, temp.Second));
             }
             // 정상 종료
             return 0;
@@ -139,7 +143,25 @@ namespace WindowsFormsApp1
         // 경로 생성, 생성 안될경우 return 1
         public static int createPath()
         {
+            List<List<Node>> grid = new List<List<Node>>();
+            for(int i = 0; i<map.GetLength(0); i++)
+            {
+                grid.Add(new List<Node>());
+                for(int j = 0; j<map.GetLength(1); j++)
+                {
+                    Node temp = new Node(new System.Numerics.Vector2(i, j), map[i, j] != 1);
+                    grid[i].Add(temp);
+                }
+            }
             // 길찾기 알고리즘 입력
+            Astar astar = new Astar(grid);
+
+            Stack<Node> Path;
+
+            // 맨 앞에 있는 스팟 탐색;
+            Path = astar.FindPath(new System.Numerics.Vector2(start.First, start.Second), spot[0]);
+
+            if (Path == null) return 1; // 경로 없음
 
             return 0;
         }

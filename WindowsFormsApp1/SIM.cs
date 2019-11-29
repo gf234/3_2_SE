@@ -75,21 +75,19 @@ namespace WindowsFormsApp1
             return cur;
         }
         // 두개는 
-        public bool moveForward()
+        public void moveForward()
         {
             // 오작동 시 앞에 벽이면 오작동 안되게
             if ((move[head, 0] != -1) && (move[head, 1] != -1) && (100 * errRate > r.Next(1, 100)))
             {
                 cur.First += 2 * move[head, 0];
                 cur.Second += 2 * move[head, 1];
-                return true;
             }
             // 정상적으로 동작할때
             else
             {
                 cur.First += move[head, 0];
                 cur.Second += move[head, 1];
-                return false;
             }
 
         }
