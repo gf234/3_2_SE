@@ -61,6 +61,7 @@
     <Compile Include="MapForm.Designer.cs">
       <DependentUpon>MapForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MapManager.cs" />
     <Compile Include="PathForm.cs">
       <SubType>Form</SubType>
     </Compile>
