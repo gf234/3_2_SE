@@ -28,12 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.mapPictureBox = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.mapPictureBox)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // mapPictureBox
+            // 
+            this.mapPictureBox.Location = new System.Drawing.Point(2, 1);
+            this.mapPictureBox.Name = "mapPictureBox";
+            this.mapPictureBox.Size = new System.Drawing.Size(1273, 1167);
+            this.mapPictureBox.TabIndex = 0;
+            this.mapPictureBox.TabStop = false;
+            this.mapPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.MapPictureBox_Paint);
+            // 
+            // StartForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1278, 1170);
+            this.Controls.Add(this.mapPictureBox);
+            this.Name = "StartForm";
             this.Text = "StartForm";
+            ((System.ComponentModel.ISupportInitialize)(this.mapPictureBox)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.PictureBox mapPictureBox;
     }
 }

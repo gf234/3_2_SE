@@ -18,7 +18,7 @@ namespace WindowsFormsApp1
         // 헤드방향은 기본으로 위쪽( 0 )
         static int head = 0;
         // current : 현재 위치 ...
-        static Pair<int, int> current;
+        public static Pair<int, int> current;
         // 주요 지점 ...
         static List<Pair<int, int>> spot = new List<Pair<int, int>>();
 
@@ -65,8 +65,16 @@ namespace WindowsFormsApp1
 
             // 주요지점 띄어쓰기로 구분해서 저장
             string[] spotList = spotPos.Split(' ');
+
             // 짝수개가 아니면 에러
             if (spotList.GetLength(0) % 2 == 1) return 2;
+            foreach (var s in spotList){
+                if(s == "")
+                {
+                    return 2;
+                }
+            }
+
             // 좌표로 받기 위해 2개 씩 이동하면서 저장
             for (int i = 0; i < spotList.Length; i += 2)
             {

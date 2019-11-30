@@ -61,7 +61,6 @@
     <Compile Include="MapForm.Designer.cs">
       <DependentUpon>MapForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MapManager.cs" />
     <Compile Include="PathForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +96,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="StartForm.resx">
+      <DependentUpon>StartForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
