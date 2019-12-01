@@ -50,6 +50,11 @@
             this.startRowNumericUpDown.Name = "startRowNumericUpDown";
             this.startRowNumericUpDown.Size = new System.Drawing.Size(120, 25);
             this.startRowNumericUpDown.TabIndex = 0;
+            this.startRowNumericUpDown.Value = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
             // 
             // startColumnNumericUpDown
             // 
@@ -96,6 +101,7 @@
             this.spotTextBox.Name = "spotTextBox";
             this.spotTextBox.Size = new System.Drawing.Size(276, 25);
             this.spotTextBox.TabIndex = 5;
+            this.spotTextBox.Text = "1 1";
             this.spotTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SpotTextBox_KeyPress);
             // 
             // enterButton

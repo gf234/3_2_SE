@@ -10,24 +10,25 @@ namespace WindowsFormsApp1
     class SimInterface
     {
         Sim sim = new Sim();
-        public bool getHazardSensor() {
+        public bool getHazardSensor()
+        {
             return sim.HazardSensor();
         }
-        public bool[] getColorBlobSensor() {
+        public bool[] getColorBlobSensor()
+        {
             return sim.ColorBlobSensor();
         }
-        public Pair<int,int> getPositionSensor() {
+        public Pair<int, int> getPositionSensor()
+        {
             return sim.PositionSensor();
         }
-        public void moveForward() {
-            sim.moveForward();
-        }
-        public void rotation() {
-            sim.rotation();
-        }
-        public void setMap(int[,] map)
+        public bool moveForward()
         {
-            sim.setMap(map);
+            return sim.moveForward();
+        }
+        public void rotation()
+        {
+            sim.rotation();
         }
     }
 }

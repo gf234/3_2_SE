@@ -16,11 +16,11 @@ namespace WindowsFormsApp1
         // 경로는 노드의 스택 형식 ...
         public static List<Tile> path = new List<Tile>();
         // 헤드방향은 기본으로 위쪽( 0 )
-        static int head = 0;
+        public static int head = 0;
         // current : 현재 위치 ...
         public static Pair<int, int> current;
         // 주요 지점 ...
-        static List<Pair<int, int>> spot = new List<Pair<int, int>>();
+        public static List<Pair<int, int>> spot = new List<Pair<int, int>>();
 
 
         //////////////////////////////////////////////////멤버 함수

@@ -33,3 +33,16 @@ C:\Users\gf234\OneDrive\바탕 화면\3_2_SE-master\WindowsFormsApp1\obj\Debug\W
 C:\Users\gf234\OneDrive\바탕 화면\3_2_SE-master\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
 C:\Users\gf234\OneDrive\바탕 화면\3_2_SE-master\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\gf234\OneDrive\바탕 화면\3_2_SE-master\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\hyunho\source\soft_engine\git3\3_2_SE-master\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojAssemblyReference.cache
+C:\Users\hyunho\source\soft_engine\git3\3_2_SE-master\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.MainForm.resources
+C:\Users\hyunho\source\soft_engine\git3\3_2_SE-master\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.MapForm.resources
+C:\Users\hyunho\source\soft_engine\git3\3_2_SE-master\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.PathForm.resources
+C:\Users\hyunho\source\soft_engine\git3\3_2_SE-master\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\hyunho\source\soft_engine\git3\3_2_SE-master\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.StartForm.resources
+C:\Users\hyunho\source\soft_engine\git3\3_2_SE-master\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+C:\Users\hyunho\source\soft_engine\git3\3_2_SE-master\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+C:\Users\hyunho\source\soft_engine\git3\3_2_SE-master\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\hyunho\source\soft_engine\git3\3_2_SE-master\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\hyunho\source\soft_engine\git3\3_2_SE-master\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\hyunho\source\soft_engine\git3\3_2_SE-master\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\hyunho\source\soft_engine\git3\3_2_SE-master\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb

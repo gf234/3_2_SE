@@ -56,7 +56,7 @@
             this.columnNumericUpDown.Size = new System.Drawing.Size(120, 25);
             this.columnNumericUpDown.TabIndex = 0;
             this.columnNumericUpDown.Value = new decimal(new int[] {
-            3,
+            8,
             0,
             0,
             0});
@@ -78,7 +78,7 @@
             this.rowNumericUpDown.Size = new System.Drawing.Size(120, 25);
             this.rowNumericUpDown.TabIndex = 1;
             this.rowNumericUpDown.Value = new decimal(new int[] {
-            3,
+            8,
             0,
             0,
             0});
@@ -126,6 +126,7 @@
             this.hazardPositionBox.Name = "hazardPositionBox";
             this.hazardPositionBox.Size = new System.Drawing.Size(298, 25);
             this.hazardPositionBox.TabIndex = 6;
+            this.hazardPositionBox.Text = "0 0";
             this.hazardPositionBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.HazardPositionBox_KeyPress);
             // 
             // MapForm
