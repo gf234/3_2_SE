@@ -12,7 +12,7 @@ namespace WindowsFormsApp1
     {
         // 초기 머리방향 위쪽
         int head = 0;
-        int sleepTime = 1000; // 1초 슬립
+        int sleepTime = 500; // 1초 슬립
         SimInterface simInterface = new SimInterface();
         public void rotation(StartForm startForm)
         {
@@ -81,7 +81,7 @@ namespace WindowsFormsApp1
         {
             while (true)
             {
-                Thread.Sleep(1000);
+                Thread.Sleep(sleepTime);
                 // 경로 == List<Tile> 형식 --> path[i].X  :  행  ,  path[i].Y   :  열  <-- 이렇게 접근 가능 
                 rotation(startForm);
                 if (!avoidingHazard(startForm)) // 위험지역 나오면 다시 로테이션부터 시작

@@ -43,7 +43,7 @@ namespace WindowsFormsApp1
             int row = cur.First + move[head, 0];
             int col = cur.Second + move[head, 1];
             // 3% 확률로 에러
-            if (3 >= r.Next(1, 100))
+            if (errRate*100 >= r.Next(1, 100))
                 return true;
             else
                 return false;
@@ -63,7 +63,8 @@ namespace WindowsFormsApp1
         public bool moveForward()
         {
             // 오작동 시 앞에 벽이면 오작동 안되게
-            if (100 * errRate > r.Next(1, 100) && Map.isInMap(new Pair<int, int>(cur.First + 2 * move[head, 0], cur.Second + 2 * move[head, 1])))
+            if (100 * errRate > r.Next(1, 100) && Map.isInMap(new Pair<int, int>(cur.First + 2 * move[head, 0],cur.Second + 2 * move[head, 1]))
+                &&Map.map[cur.First + 2 * move[head, 0], cur.Second + 2 * move[head, 1]]!=2)
             {
                 cur.First += 2 * move[head, 0];
                 cur.Second += 2 * move[head, 1];
