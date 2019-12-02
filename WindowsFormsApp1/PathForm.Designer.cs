@@ -41,14 +41,15 @@
             // 
             // startRowNumericUpDown
             // 
-            this.startRowNumericUpDown.Location = new System.Drawing.Point(129, 43);
+            this.startRowNumericUpDown.Location = new System.Drawing.Point(161, 52);
+            this.startRowNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.startRowNumericUpDown.Maximum = new decimal(new int[] {
             10,
             0,
             0,
             0});
             this.startRowNumericUpDown.Name = "startRowNumericUpDown";
-            this.startRowNumericUpDown.Size = new System.Drawing.Size(120, 25);
+            this.startRowNumericUpDown.Size = new System.Drawing.Size(150, 28);
             this.startRowNumericUpDown.TabIndex = 0;
             this.startRowNumericUpDown.Value = new decimal(new int[] {
             7,
@@ -58,57 +59,63 @@
             // 
             // startColumnNumericUpDown
             // 
-            this.startColumnNumericUpDown.Location = new System.Drawing.Point(409, 45);
+            this.startColumnNumericUpDown.Location = new System.Drawing.Point(511, 54);
+            this.startColumnNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.startColumnNumericUpDown.Maximum = new decimal(new int[] {
             10,
             0,
             0,
             0});
             this.startColumnNumericUpDown.Name = "startColumnNumericUpDown";
-            this.startColumnNumericUpDown.Size = new System.Drawing.Size(120, 25);
+            this.startColumnNumericUpDown.Size = new System.Drawing.Size(150, 28);
             this.startColumnNumericUpDown.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(31, 45);
+            this.label1.Location = new System.Drawing.Point(39, 54);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 15);
+            this.label1.Size = new System.Drawing.Size(110, 18);
             this.label1.TabIndex = 2;
             this.label1.Text = "시작 행 좌표";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(311, 45);
+            this.label2.Location = new System.Drawing.Point(389, 54);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(92, 15);
+            this.label2.Size = new System.Drawing.Size(110, 18);
             this.label2.TabIndex = 3;
             this.label2.Text = "시작 열 좌표";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 96);
+            this.label3.Location = new System.Drawing.Point(15, 115);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(234, 15);
+            this.label3.Size = new System.Drawing.Size(278, 18);
             this.label3.TabIndex = 4;
             this.label3.Text = "주요지점 좌표 (띄어 쓰기로 구분)";
             // 
             // spotTextBox
             // 
-            this.spotTextBox.Location = new System.Drawing.Point(252, 93);
+            this.spotTextBox.Location = new System.Drawing.Point(315, 112);
+            this.spotTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.spotTextBox.Name = "spotTextBox";
-            this.spotTextBox.Size = new System.Drawing.Size(276, 25);
+            this.spotTextBox.Size = new System.Drawing.Size(344, 28);
             this.spotTextBox.TabIndex = 5;
-            this.spotTextBox.Text = "1 1";
+            this.spotTextBox.Text = "1 1 7 5 4 7";
             this.spotTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SpotTextBox_KeyPress);
             // 
             // enterButton
             // 
-            this.enterButton.Location = new System.Drawing.Point(399, 144);
+            this.enterButton.Location = new System.Drawing.Point(499, 173);
+            this.enterButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.enterButton.Name = "enterButton";
-            this.enterButton.Size = new System.Drawing.Size(89, 35);
+            this.enterButton.Size = new System.Drawing.Size(111, 42);
             this.enterButton.TabIndex = 6;
             this.enterButton.Text = "입력";
             this.enterButton.UseVisualStyleBackColor = true;
@@ -116,9 +123,9 @@
             // 
             // PathForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(541, 200);
+            this.ClientSize = new System.Drawing.Size(676, 240);
             this.ControlBox = false;
             this.Controls.Add(this.enterButton);
             this.Controls.Add(this.spotTextBox);
@@ -127,6 +134,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.startColumnNumericUpDown);
             this.Controls.Add(this.startRowNumericUpDown);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "PathForm";
             this.Text = "PathForm";
             ((System.ComponentModel.ISupportInitialize)(this.startRowNumericUpDown)).EndInit();

@@ -26,6 +26,7 @@ namespace WindowsFormsApp1
             if(isMap && isPath)
             {
                 StartForm startForm = new StartForm();
+                Task.Run(() => startForm.start());
                 startForm.ShowDialog();
             }
             else

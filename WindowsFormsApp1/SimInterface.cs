@@ -14,7 +14,7 @@ namespace WindowsFormsApp1
         {
             return sim.HazardSensor();
         }
-        public bool[] getColorBlobSensor()
+        public bool getColorBlobSensor()
         {
             return sim.ColorBlobSensor();
         }

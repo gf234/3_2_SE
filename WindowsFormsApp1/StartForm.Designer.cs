@@ -34,9 +34,9 @@
             // 
             // mapPictureBox
             // 
-            this.mapPictureBox.Location = new System.Drawing.Point(2, 1);
+            this.mapPictureBox.Location = new System.Drawing.Point(12, 12);
             this.mapPictureBox.Name = "mapPictureBox";
-            this.mapPictureBox.Size = new System.Drawing.Size(1273, 1167);
+            this.mapPictureBox.Size = new System.Drawing.Size(854, 820);
             this.mapPictureBox.TabIndex = 0;
             this.mapPictureBox.TabStop = false;
             this.mapPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.MapPictureBox_Paint);
@@ -45,7 +45,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1278, 1170);
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(878, 844);
             this.Controls.Add(this.mapPictureBox);
             this.Name = "StartForm";
             this.Text = "StartForm";

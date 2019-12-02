@@ -48,18 +48,12 @@ namespace WindowsFormsApp1
             else
                 return false;
         }
-        public bool[] ColorBlobSensor()
+        public bool ColorBlobSensor()
         {
-            bool[] isColor = new bool[4] { false, false, false, false };
-            for (int i = 0; i < 4; i++)
-            {
-                int row = cur.First + move[i, 0];
-                int col = cur.Second + move[i, 1];
-                // 컬러블럽 확률 2%
-                if (3 > r.Next(1, 100))
-                    isColor[i] = true;
-            }
-            return isColor;
+            if (Map.map[cur.First, cur.Second] == 3)
+                return true;
+
+            return false;
         }
         public Pair<int, int> PositionSensor()
         {
@@ -69,7 +63,7 @@ namespace WindowsFormsApp1
         public bool moveForward()
         {
             // 오작동 시 앞에 벽이면 오작동 안되게
-            if (100 * errRate > r.Next(1, 100))
+            if (100 * errRate > r.Next(1, 100) && Map.isInMap(new Pair<int, int>(cur.First + 2 * move[head, 0], cur.Second + 2 * move[head, 1])))
             {
                 cur.First += 2 * move[head, 0];
                 cur.Second += 2 * move[head, 1];

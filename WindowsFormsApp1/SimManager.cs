@@ -14,7 +14,7 @@ namespace WindowsFormsApp1
         int head = 0;
         int sleepTime = 1000; // 1초 슬립
         SimInterface simInterface = new SimInterface();
-        public void rotation()
+        public void rotation(StartForm startForm)
         {
             if (Map.path.Count == 0) {
                 Console.WriteLine("path 0 err");
@@ -45,11 +45,13 @@ namespace WindowsFormsApp1
             {
                 head = (head + 1) % 4;
                 simInterface.rotation();
+                set_head();
                 // StartForm에 회전 디스플레이 띄우기
+                startForm.display();
                 Thread.Sleep(sleepTime);
             }
         }
-        public bool avoidingHazard()
+        public bool avoidingHazard(StartForm startForm)
         {
             bool ishazard = simInterface.getHazardSensor();
             if (ishazard)
@@ -57,6 +59,7 @@ namespace WindowsFormsApp1
                 // 위험지역이니 맵에게 알리는 코드
                 Map.addHazard(ishazard);
                 // StartForm에 위험지역 디스플레이 띄우기
+                startForm.display();
                 Thread.Sleep(sleepTime);
                 Map.createPath();
                 return false;
@@ -66,64 +69,60 @@ namespace WindowsFormsApp1
         }
         public void detectingColorBlob()
         {
-            bool[] iscolor = simInterface.getColorBlobSensor();
-            bool isin = false;
-            for (int i = 0; i < iscolor.Length; i++)
-            {
-                if (iscolor[i] == true)
-                    isin = true;
-            }
-            if (isin)
-            {
-                // 컬러블럽을 맵에게 알리는 코드
-                Map.addColorBlob(iscolor);
-                // StartForm에 컬러블럽 디스플레이 띄우기
-                Thread.Sleep(sleepTime);
-            }
+            bool iscolor = simInterface.getColorBlobSensor();
+            Map.addColorBlob(iscolor);
         }
         public void compensateMotion()
         {
             // 맵에게 알리는 코드
             Map.createPath();
         }
-        public void keyPointSearch()
+        public void keyPointSearch(StartForm startForm)
         {
-            Thread.Sleep(sleepTime);
             while (true)
             {
+                Thread.Sleep(1000);
                 // 경로 == List<Tile> 형식 --> path[i].X  :  행  ,  path[i].Y   :  열  <-- 이렇게 접근 가능 
-                rotation();
-                if (!avoidingHazard()) // 위험지역 나오면 다시 로테이션부터 시작
+                rotation(startForm);
+                if (!avoidingHazard(startForm)) // 위험지역 나오면 다시 로테이션부터 시작
                     continue;
                 detectingColorBlob();
                 // 오작동 했다면
-                if (!simInterface.moveForward())
+                bool moveCorrect = simInterface.moveForward();
+                set_cur();
+                startForm.display();
+                Map.path.RemoveAt(0); // 제대로 움직였으니 첫번째 패스 삭제
+                if (!moveCorrect)
                 {
-                    compensateMotion();
-                    continue;
+                    compensateMotion(); // 경로 재설정
+                    
                 }
                 // 스팟에 도착 안했으면 계속 ... 
                 // 스팟에 도착 했으면(현재 경로의 끝) -> 스팟 리스트에서 맨앞에 있는거 삭제(도착했으니까) -> 다음 스팟이 없으면 -> 끝
-                // 스팟이면 스팟 하나 삭제
-                set_cur();
-                set_head();
+
                 if (Map.current.First == Map.spot[0].First && Map.current.Second == Map.spot[0].Second)
+                {
                     Map.spot.RemoveAt(0);
-                Map.path.RemoveAt(0); // 제대로 움직였으니 첫번째 패스 삭제
-                if (VerifyEnd()){
-                    Console.WriteLine("Successed!!!");
-                    Application.ExitThread();
-                    Environment.Exit(0);
+                    // 끝났으면
+                    if (VerifyEnd())
+                    {
+                        Console.WriteLine("Successed!!!");
+                        break;
+                    }
+                    else
+                    {
+                        Map.createPath();
+                    }
                 }
-                if (Map.path.Count == 0)
-                    Map.createPath();
+                
             }
+            
         }
-        // 남은 스팟이 없을때 끝나는 걸로 바꿔야함 ...
+
+        // 모두 끝났는지 확인
         public bool VerifyEnd()
         {
             if (Map.spot.Count() == 0)
-                // StartForm에 엔드알림
                 return true;
             else
                 return false;
