@@ -23,31 +23,31 @@ namespace WindowsFormsApp1
         public static int CreatePath() {
             return Map.createPath();
         }
-        public static int[,] get_map()
+        public static int[,] getMap()
         {
             return Map.map;
         }
-        public static List<Tile> get_path()
+        public static List<Tile> getPath()
         {
             return Map.path;
         }
-        public static int get_head()
+        public static int getHead()
         {
             return Map.head;
         }
-        public static void set_head(int head)
+        public static void setHead(int head)
         {
             Map.head=head;
         }
-        public static Pair<int,int> get_current()
+        public static Pair<int,int> getCurrent()
         {
             return Map.current;
         }
-        public static void set_current(Pair<int,int> map)
+        public static void setCurrent(Pair<int,int> map)
         {
             Map.current=map;
         }
-        public static List<Pair<int,int>> get_spot()
+        public static List<Pair<int,int>> getSpot()
         {
             return Map.spot;
         }

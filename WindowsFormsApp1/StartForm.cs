@@ -31,19 +31,18 @@ namespace WindowsFormsApp1
             System.Drawing.Bitmap robot3 = new Bitmap(@"..\..\image\sion3.png");
             System.Drawing.Bitmap flag2 = new Bitmap(@"..\..\image\flag2.png");
 
-            //mapPictureBox.Image = bitmap;
 
-            int width = (mapPictureBox.Size.Width-10) / Map.map.GetLength(1);
-            int height = (mapPictureBox.Size.Height-10) / Map.map.GetLength(0);
+            int width = (mapPictureBox.Size.Width-10) / MapManager.getMap().GetLength(1);
+            int height = (mapPictureBox.Size.Height-10) / MapManager.getMap().GetLength(0);
 
             // 맵 그리기
             Rectangle Region;
-            for(int i = 0; i<Map.map.GetLength(0); i++)
+            for(int i = 0; i< MapManager.getMap().GetLength(0); i++)
             {
-                for(int j = 0; j<Map.map.GetLength(1); j++)
+                for(int j = 0; j< MapManager.getMap().GetLength(1); j++)
                 {
-                    // 아무것도 없으면 : 0 위험지역 : 1 탐색 지점 : 2  입력 받은 컬러블럽 : 3  지나간 컬러블럽 : 4
-                    switch (Map.map[i,j])
+                    // 아무것도 없으면 : 0 위험지역 : 1 탐색 지점 : 2  입력 받은 컬러블럽 : 3  지나간 컬러블럽 : 4 지나간 탐색지점 : 5
+                    switch (MapManager.getMap()[i,j])
                     {
                         case 0:
                             Region = new Rectangle(new Point(j * width, i * height), new Size(width, height));
@@ -52,62 +51,44 @@ namespace WindowsFormsApp1
                             break;
                         case 1:
                             Region = new Rectangle(new Point(j * width, i * height), new Size(width, height));
-                            //e.Graphics.FillRectangle(new SolidBrush(Color.Red), Region);
-                            //e.Graphics.DrawRectangle(new Pen(Color.DarkGray), Region);
                             e.Graphics.DrawImage(hazard, Region);
                             break;
                         case 2:
                             Region = new Rectangle(new Point(j * width, i * height), new Size(width, height));
-                            //e.Graphics.FillRectangle(new SolidBrush(Color.Yellow), Region);
-                            //e.Graphics.DrawRectangle(new Pen(Color.DarkGray), Region);
                             e.Graphics.DrawImage(spot, Region);
                             break;
                         case 3:
                             Region = new Rectangle(new Point(j * width, i * height), new Size(width, height));
-                            //e.Graphics.FillRectangle(new SolidBrush(Color.Gray), Region);
-                            //e.Graphics.DrawRectangle(new Pen(Color.DarkGray), Region);
                             e.Graphics.DrawImage(colorblob1, Region);
                             break;
                         case 4:
                             Region = new Rectangle(new Point(j * width, i * height), new Size(width, height));
-                            //e.Graphics.FillRectangle(new SolidBrush(Color.Green), Region);
-                            //e.Graphics.DrawRectangle(new Pen(Color.DarkGray), Region);
                             e.Graphics.DrawImage(colorblob2, Region);
                             break;
                         case 5:
                             Region = new Rectangle(new Point(j * width, i * height), new Size(width, height));
-                            //e.Graphics.FillRectangle(new SolidBrush(Color.Green), Region);
-                            //e.Graphics.DrawRectangle(new Pen(Color.DarkGray), Region);
                             e.Graphics.DrawImage(flag2, Region);
                             break;
                     }
                 }
             }
             // 로봇 현재 위치
-            Region = new Rectangle(new Point(Map.current.Second * width, Map.current.First * height), new Size(width, height));
-            //e.Graphics.FillRectangle(new SolidBrush(Color.LightBlue), Region);
-            //e.Graphics.DrawRectangle(new Pen(Color.DarkGray), Region);
+            Region = new Rectangle(new Point(MapManager.getCurrent().Second * width, MapManager.getCurrent().First * height), new Size(width, height));
             e.Graphics.DrawImage(robot0, Region);
 
             // 화살표 표시
-            Pen pen = new Pen(Color.Blue, 5);
-            pen.StartCap = LineCap.ArrowAnchor;
             switch (Map.head)
             {
                 case 0:
-                    //e.Graphics.DrawLine(pen, Region.X + Region.Width * 1 / 2, Region.Y + Region.Height * 1 / 4, Region.X + Region.Width * 1 / 2, Region.Y + Region.Height * 3 / 4);
                     e.Graphics.DrawImage(robot0, Region);
                     break;
                 case 3:
-                    //e.Graphics.DrawLine(pen, Region.X + Region.Width * 1 / 4, Region.Y + Region.Height * 1 / 2, Region.X + Region.Width * 3 / 4, Region.Y + Region.Height * 1 / 2);
                     e.Graphics.DrawImage(robot3, Region);
                     break;
                 case 2:
-                    //e.Graphics.DrawLine(pen, Region.X + Region.Width * 1 / 2, Region.Y + Region.Height * 3 / 4, Region.X + Region.Width * 1 / 2, Region.Y + Region.Height * 1 / 4);
                     e.Graphics.DrawImage(robot2, Region);
                     break;
                 case 1:
-                    //e.Graphics.DrawLine(pen, Region.X + Region.Width * 3 / 4, Region.Y + Region.Height * 1 / 2, Region.X + Region.Width * 1 / 4, Region.Y + Region.Height * 1 / 2);
                     e.Graphics.DrawImage(robot1, Region);
                     break;
             }
@@ -123,11 +104,8 @@ namespace WindowsFormsApp1
                 MessageBox.Show("탐색 완료!");
             });
         }
-        // 로테이션 반응
-        // 하자드 반응
-        // 컬러블럽 반응
-        // 무브 반응
-        // 엔드 반응
+
+        // 이동하거나 맵이 바뀌면 gui에 표시
         public void display()
         {
             mapPictureBox.Invalidate();

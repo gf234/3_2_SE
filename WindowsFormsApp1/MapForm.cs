@@ -20,7 +20,7 @@ namespace WindowsFormsApp1
         private void EnterButton_Click(object sender, EventArgs e)
         {
 
-            if (Map.setMapInfo(Decimal.ToInt32(rowNumericUpDown.Value), Decimal.ToInt32(columnNumericUpDown.Value), hazardPositionBox.Text, colorBlobPositionBox.Text) == 1)
+            if (MapManager.setMapInfo(Decimal.ToInt32(rowNumericUpDown.Value), Decimal.ToInt32(columnNumericUpDown.Value), hazardPositionBox.Text, colorBlobPositionBox.Text) == 1)
             {
                 // 위험지역이 맵 범위를 넘어선 경우 에러창 띄우고
                 MessageBox.Show("에러 : 올바른 좌표의 위험지역을 입력해 주세요.");

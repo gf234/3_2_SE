@@ -31,9 +31,9 @@ namespace WindowsFormsApp1
         float errRate = 0.05f;
         int head = 0;
         // 현재위치를 심이 받아와야해
-        Pair<int, int> cur = MapManager.get_current();
+        Pair<int, int> cur = MapManager.getCurrent();
         // 바로 맵 상태를 받아와
-        int[,] map = MapManager.get_map();
+        int[,] map = MapManager.getMap();
         // 상우하좌
         int[,] move = new int[4, 2] { { -1, 0 }, { 0, 1 }, { 1, 0 }, { 0, -1 } };
         Random r = new Random();
@@ -50,7 +50,7 @@ namespace WindowsFormsApp1
         }
         public bool ColorBlobSensor()
         {
-            if (MapManager.get_map()[cur.First, cur.Second] == 3)
+            if (MapManager.getMap()[cur.First, cur.Second] == 3)
                 return true;
 
             return false;
@@ -64,7 +64,7 @@ namespace WindowsFormsApp1
         {
             // 오작동 시 앞에 벽이면 오작동 안되게
             if (100 * errRate > r.Next(1, 100) && MapManager.isInMap(new Pair<int, int>(cur.First + 2 * move[head, 0],cur.Second + 2 * move[head, 1]))
-                && MapManager.get_map()[cur.First + 2 * move[head, 0], cur.Second + 2 * move[head, 1]]!=2)
+                && MapManager.getMap()[cur.First + 2 * move[head, 0], cur.Second + 2 * move[head, 1]]!=2)
             {
                 cur.First += 2 * move[head, 0];
                 cur.Second += 2 * move[head, 1];
