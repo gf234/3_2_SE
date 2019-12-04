@@ -59,3 +59,16 @@ C:\Users\hyunho\source\soft_engine\git4\3_2_SE\WindowsFormsApp1\obj\Debug\Window
 C:\Users\hyunho\source\soft_engine\git4\3_2_SE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
 C:\Users\hyunho\source\soft_engine\git4\3_2_SE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\hyunho\source\soft_engine\git4\3_2_SE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\gf234\OneDrive\문서\GitHub\3_2_SE\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\gf234\OneDrive\문서\GitHub\3_2_SE\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\gf234\OneDrive\문서\GitHub\3_2_SE\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\gf234\OneDrive\문서\GitHub\3_2_SE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojAssemblyReference.cache
+C:\Users\gf234\OneDrive\문서\GitHub\3_2_SE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.MainForm.resources
+C:\Users\gf234\OneDrive\문서\GitHub\3_2_SE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.MapForm.resources
+C:\Users\gf234\OneDrive\문서\GitHub\3_2_SE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.PathForm.resources
+C:\Users\gf234\OneDrive\문서\GitHub\3_2_SE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\gf234\OneDrive\문서\GitHub\3_2_SE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.StartForm.resources
+C:\Users\gf234\OneDrive\문서\GitHub\3_2_SE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+C:\Users\gf234\OneDrive\문서\GitHub\3_2_SE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+C:\Users\gf234\OneDrive\문서\GitHub\3_2_SE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\gf234\OneDrive\문서\GitHub\3_2_SE\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
