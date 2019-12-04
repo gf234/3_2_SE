@@ -21,14 +21,14 @@ namespace WindowsFormsApp1
     
         private void MapPictureBox_Paint(object sender, PaintEventArgs e)
         {
-            System.Drawing.Bitmap spot = new Bitmap(@"..\..\image\ward.jpg");
-            System.Drawing.Bitmap hazard = new Bitmap(@"..\..\image\baron2.png");
-            System.Drawing.Bitmap colorblob1 = new Bitmap(@"..\..\image\question.jpg");
-            System.Drawing.Bitmap colorblob2 = new Bitmap(@"..\..\image\teemo.png");
-            System.Drawing.Bitmap robot0 = new Bitmap(@"..\..\image\sion0.png");
-            System.Drawing.Bitmap robot1 = new Bitmap(@"..\..\image\sion1.png");
-            System.Drawing.Bitmap robot2 = new Bitmap(@"..\..\image\sion2.png");
-            System.Drawing.Bitmap robot3 = new Bitmap(@"..\..\image\sion3.png");
+            System.Drawing.Bitmap spot = new Bitmap(@"C:\Users\hyunho\source\soft_engine\git4\3_2_SE\WindowsFormsApp1\image\ward.jpg");
+            System.Drawing.Bitmap hazard = new Bitmap(@"C:\Users\hyunho\source\soft_engine\git4\3_2_SE\WindowsFormsApp1\image\baron2.png");
+            System.Drawing.Bitmap colorblob1 = new Bitmap(@"C:\Users\hyunho\source\soft_engine\git4\3_2_SE\WindowsFormsApp1\image\question.jpg");
+            System.Drawing.Bitmap colorblob2 = new Bitmap(@"C:\Users\hyunho\source\soft_engine\git4\3_2_SE\WindowsFormsApp1\image\teemo.png");
+            System.Drawing.Bitmap robot0 = new Bitmap(@"C:\Users\hyunho\source\soft_engine\git4\3_2_SE\WindowsFormsApp1\image\sion0.png");
+            System.Drawing.Bitmap robot1 = new Bitmap(@"C:\Users\hyunho\source\soft_engine\git4\3_2_SE\WindowsFormsApp1\image\sion1.png");
+            System.Drawing.Bitmap robot2 = new Bitmap(@"C:\Users\hyunho\source\soft_engine\git4\3_2_SE\WindowsFormsApp1\image\sion2.png");
+            System.Drawing.Bitmap robot3 = new Bitmap(@"C:\Users\hyunho\source\soft_engine\git4\3_2_SE\WindowsFormsApp1\image\sion3.png");
 
             //mapPictureBox.Image = bitmap;
 
@@ -105,7 +105,11 @@ namespace WindowsFormsApp1
                     break;
             }
         }
-        
+        //public void start()
+        //{
+        //    SimManager simManager = new SimManager();
+        //    simManager.keyPointSearch(this);
+        //}
         public async Task start()
         {
             await Task.Run(() =>

@@ -61,6 +61,7 @@
     <Compile Include="MapForm.Designer.cs">
       <DependentUpon>MapForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MapManager.cs" />
     <Compile Include="PathForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,23 +112,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="image\baron.jpg" />
-    <Content Include="image\baron2.png" />
-    <Content Include="image\closed_box.png" />
-    <Content Include="image\coin.png" />
-    <Content Include="image\flag.png" />
-    <Content Include="image\hazard.png" />
-    <Content Include="image\item_box.jpg" />
-    <Content Include="image\mecha-zero-sion-03.png" />
-    <Content Include="image\question.jpg" />
-    <Content Include="image\sion0.png" />
-    <Content Include="image\sion1.png" />
-    <Content Include="image\sion2.png" />
-    <Content Include="image\sion3.png" />
-    <Content Include="image\teemo.png" />
-    <Content Include="image\ward.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

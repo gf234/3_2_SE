@@ -43,8 +43,7 @@
             // 
             // columnNumericUpDown
             // 
-            this.columnNumericUpDown.Location = new System.Drawing.Point(544, 55);
-            this.columnNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.columnNumericUpDown.Location = new System.Drawing.Point(435, 46);
             this.columnNumericUpDown.Maximum = new decimal(new int[] {
             10,
             0,
@@ -56,7 +55,7 @@
             0,
             0});
             this.columnNumericUpDown.Name = "columnNumericUpDown";
-            this.columnNumericUpDown.Size = new System.Drawing.Size(150, 28);
+            this.columnNumericUpDown.Size = new System.Drawing.Size(120, 25);
             this.columnNumericUpDown.TabIndex = 0;
             this.columnNumericUpDown.Value = new decimal(new int[] {
             8,
@@ -66,8 +65,7 @@
             // 
             // rowNumericUpDown
             // 
-            this.rowNumericUpDown.Location = new System.Drawing.Point(152, 55);
-            this.rowNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rowNumericUpDown.Location = new System.Drawing.Point(122, 46);
             this.rowNumericUpDown.Maximum = new decimal(new int[] {
             10,
             0,
@@ -79,7 +77,7 @@
             0,
             0});
             this.rowNumericUpDown.Name = "rowNumericUpDown";
-            this.rowNumericUpDown.Size = new System.Drawing.Size(150, 28);
+            this.rowNumericUpDown.Size = new System.Drawing.Size(120, 25);
             this.rowNumericUpDown.TabIndex = 1;
             this.rowNumericUpDown.Value = new decimal(new int[] {
             8,
@@ -90,50 +88,45 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(74, 67);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(59, 56);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 18);
+            this.label1.Size = new System.Drawing.Size(57, 15);
             this.label1.TabIndex = 2;
             this.label1.Text = "행 크기";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(465, 67);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(372, 56);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 18);
+            this.label2.Size = new System.Drawing.Size(57, 15);
             this.label2.TabIndex = 3;
             this.label2.Text = "열 크기";
             // 
             // enterButton
             // 
-            this.enterButton.Location = new System.Drawing.Point(559, 258);
-            this.enterButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.enterButton.Location = new System.Drawing.Point(447, 215);
             this.enterButton.Name = "enterButton";
-            this.enterButton.Size = new System.Drawing.Size(134, 42);
+            this.enterButton.Size = new System.Drawing.Size(107, 35);
             this.enterButton.TabIndex = 4;
             this.enterButton.Text = "입력";
             this.enterButton.UseVisualStyleBackColor = true;
-            this.enterButton.Click += new System.EventHandler(this.enterButton_Click);
+            this.enterButton.Click += new System.EventHandler(this.Button1_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 156);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(12, 130);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(284, 18);
+            this.label3.Size = new System.Drawing.Size(239, 15);
             this.label3.TabIndex = 5;
             this.label3.Text = "위험지역 좌표 ( 띄어쓰기로 구분 )";
             // 
             // hazardPositionBox
             // 
-            this.hazardPositionBox.Location = new System.Drawing.Point(321, 144);
-            this.hazardPositionBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.hazardPositionBox.Location = new System.Drawing.Point(257, 120);
             this.hazardPositionBox.Name = "hazardPositionBox";
-            this.hazardPositionBox.Size = new System.Drawing.Size(372, 28);
+            this.hazardPositionBox.Size = new System.Drawing.Size(298, 25);
             this.hazardPositionBox.TabIndex = 6;
             this.hazardPositionBox.Text = "6 0 6 1 6 3 4 2 4 5";
             this.hazardPositionBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.HazardPositionBox_KeyPress);
@@ -141,28 +134,26 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 216);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(12, 180);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(284, 18);
+            this.label4.Size = new System.Drawing.Size(239, 15);
             this.label4.TabIndex = 7;
             this.label4.Text = "컬러블럽 좌표 ( 띄어쓰기로 구분 )";
             // 
             // colorBlobPositionBox
             // 
-            this.colorBlobPositionBox.Location = new System.Drawing.Point(321, 206);
-            this.colorBlobPositionBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.colorBlobPositionBox.Location = new System.Drawing.Point(257, 172);
             this.colorBlobPositionBox.Name = "colorBlobPositionBox";
-            this.colorBlobPositionBox.Size = new System.Drawing.Size(372, 28);
+            this.colorBlobPositionBox.Size = new System.Drawing.Size(298, 25);
             this.colorBlobPositionBox.TabIndex = 8;
             this.colorBlobPositionBox.Text = "1 0 2 3 4 6";
             this.colorBlobPositionBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ColorBlobPositionBox_KeyPress);
             // 
             // MapForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(726, 313);
+            this.ClientSize = new System.Drawing.Size(581, 261);
             this.ControlBox = false;
             this.Controls.Add(this.colorBlobPositionBox);
             this.Controls.Add(this.label4);
@@ -173,7 +164,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.rowNumericUpDown);
             this.Controls.Add(this.columnNumericUpDown);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MapForm";
             this.Text = "MapForm";
             ((System.ComponentModel.ISupportInitialize)(this.columnNumericUpDown)).EndInit();
