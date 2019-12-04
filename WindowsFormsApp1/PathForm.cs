@@ -21,7 +21,7 @@ namespace WindowsFormsApp1
         {
             int errCode;
             // 에러 1인경우 시작 지점 에러
-            if ((errCode = Map.setPathInfo(Decimal.ToInt32(startRowNumericUpDown.Value), Decimal.ToInt32(startColumnNumericUpDown.Value), spotTextBox.Text)) == 1)
+            if ((errCode = MapManager.setPathInfo(Decimal.ToInt32(startRowNumericUpDown.Value), Decimal.ToInt32(startColumnNumericUpDown.Value), spotTextBox.Text)) == 1)
             {
                 MessageBox.Show("에러 : 맵 크기에 맞는 시작지점을 입력해 주세요.");
             }
