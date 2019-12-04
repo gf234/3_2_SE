@@ -16,13 +16,13 @@ namespace WindowsFormsApp1
         SimInterface simInterface = new SimInterface();
         public void rotation(StartForm startForm)
         {
-            if (Map.path.Count == 0) {
+            if (MapManager.get_path().Count == 0) {
                 Console.WriteLine("path 0 err");
                 Application.ExitThread();
                 Environment.Exit(0);
             }
-            int x = Map.current.First - Map.path[0].X;
-            int y = Map.path[0].Y - Map.current.Second;
+            int x = MapManager.get_current().First - MapManager.get_path()[0].X;
+            int y = MapManager.get_path()[0].Y - MapManager.get_current().Second;
             int forward = 0; // 진행할 방향
             if (x == 1 && y == 0)
             {
@@ -57,11 +57,11 @@ namespace WindowsFormsApp1
             if (ishazard)
             {
                 // 위험지역이니 맵에게 알리는 코드
-                Map.addHazard(ishazard);
+                MapManager.addHazard(ishazard);
                 // StartForm에 위험지역 디스플레이 띄우기
                 startForm.display();
                 Thread.Sleep(sleepTime);
-                Map.createPath();
+                MapManager.CreatePath();
                 return false;
             }
             else
@@ -70,12 +70,12 @@ namespace WindowsFormsApp1
         public void detectingColorBlob()
         {
             bool iscolor = simInterface.getColorBlobSensor();
-            Map.addColorBlob(iscolor);
+            MapManager.addColorBlob(iscolor);
         }
         public void compensateMotion()
         {
             // 맵에게 알리는 코드
-            Map.createPath();
+            MapManager.CreatePath();
         }
         public void keyPointSearch(StartForm startForm)
         {
@@ -91,7 +91,7 @@ namespace WindowsFormsApp1
                 bool moveCorrect = simInterface.moveForward();
                 set_cur();
                 startForm.display();
-                Map.path.RemoveAt(0); // 제대로 움직였으니 첫번째 패스 삭제
+                MapManager.get_path().RemoveAt(0); // 제대로 움직였으니 첫번째 패스 삭제
                 if (!moveCorrect)
                 {
                     compensateMotion(); // 경로 재설정
@@ -100,9 +100,9 @@ namespace WindowsFormsApp1
                 // 스팟에 도착 안했으면 계속 ... 
                 // 스팟에 도착 했으면(현재 경로의 끝) -> 스팟 리스트에서 맨앞에 있는거 삭제(도착했으니까) -> 다음 스팟이 없으면 -> 끝
 
-                if (Map.current.First == Map.spot[0].First && Map.current.Second == Map.spot[0].Second)
+                if (MapManager.get_current().First == MapManager.get_spot()[0].First && MapManager.get_current().Second == MapManager.get_spot()[0].Second)
                 {
-                    Map.spot.RemoveAt(0);
+                    MapManager.get_spot().RemoveAt(0);
                     // 끝났으면
                     if (VerifyEnd())
                     {
@@ -111,7 +111,7 @@ namespace WindowsFormsApp1
                     }
                     else
                     {
-                        Map.createPath();
+                        MapManager.CreatePath();
                     }
                 }
                 
@@ -122,7 +122,7 @@ namespace WindowsFormsApp1
         // 모두 끝났는지 확인
         public bool VerifyEnd()
         {
-            if (Map.spot.Count() == 0)
+            if (MapManager.get_spot().Count() == 0)
                 return true;
             else
                 return false;
@@ -130,12 +130,12 @@ namespace WindowsFormsApp1
         // 맵에서 받을 헤드
         public void set_head()
         {
-            Map.head=head;
+            MapManager.set_head(head);
         }
         // 맵에서 받을 현재위치
         public void set_cur()
         {
-            Map.current=simInterface.getPositionSensor();
+            MapManager.set_current(simInterface.getPositionSensor());
         }
     }
 }
