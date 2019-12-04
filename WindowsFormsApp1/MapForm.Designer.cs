@@ -44,7 +44,7 @@
             // columnNumericUpDown
             // 
             this.columnNumericUpDown.Location = new System.Drawing.Point(544, 55);
-            this.columnNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.columnNumericUpDown.Margin = new System.Windows.Forms.Padding(4);
             this.columnNumericUpDown.Maximum = new decimal(new int[] {
             10,
             0,
@@ -67,7 +67,7 @@
             // rowNumericUpDown
             // 
             this.rowNumericUpDown.Location = new System.Drawing.Point(152, 55);
-            this.rowNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rowNumericUpDown.Margin = new System.Windows.Forms.Padding(4);
             this.rowNumericUpDown.Maximum = new decimal(new int[] {
             10,
             0,
@@ -110,7 +110,7 @@
             // enterButton
             // 
             this.enterButton.Location = new System.Drawing.Point(559, 258);
-            this.enterButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.enterButton.Margin = new System.Windows.Forms.Padding(4);
             this.enterButton.Name = "enterButton";
             this.enterButton.Size = new System.Drawing.Size(134, 42);
             this.enterButton.TabIndex = 4;
@@ -131,11 +131,11 @@
             // hazardPositionBox
             // 
             this.hazardPositionBox.Location = new System.Drawing.Point(321, 144);
-            this.hazardPositionBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.hazardPositionBox.Margin = new System.Windows.Forms.Padding(4);
             this.hazardPositionBox.Name = "hazardPositionBox";
             this.hazardPositionBox.Size = new System.Drawing.Size(372, 28);
             this.hazardPositionBox.TabIndex = 6;
-            this.hazardPositionBox.Text = "6 0 6 1 6 3 4 2 4 5";
+            this.hazardPositionBox.Text = "6 0 6 1 4 5";
             this.hazardPositionBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.HazardPositionBox_KeyPress);
             // 
             // label4
@@ -151,7 +151,7 @@
             // colorBlobPositionBox
             // 
             this.colorBlobPositionBox.Location = new System.Drawing.Point(321, 206);
-            this.colorBlobPositionBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.colorBlobPositionBox.Margin = new System.Windows.Forms.Padding(4);
             this.colorBlobPositionBox.Name = "colorBlobPositionBox";
             this.colorBlobPositionBox.Size = new System.Drawing.Size(372, 28);
             this.colorBlobPositionBox.TabIndex = 8;
@@ -173,7 +173,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.rowNumericUpDown);
             this.Controls.Add(this.columnNumericUpDown);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MapForm";
             this.Text = "MapForm";
             ((System.ComponentModel.ISupportInitialize)(this.columnNumericUpDown)).EndInit();

@@ -21,14 +21,15 @@ namespace WindowsFormsApp1
     
         private void MapPictureBox_Paint(object sender, PaintEventArgs e)
         {
-            System.Drawing.Bitmap spot = new Bitmap(@"..\..\image\ward.jpg");
-            System.Drawing.Bitmap hazard = new Bitmap(@"..\..\image\baron2.png");
-            System.Drawing.Bitmap colorblob1 = new Bitmap(@"..\..\image\question.jpg");
-            System.Drawing.Bitmap colorblob2 = new Bitmap(@"..\..\image\teemo.png");
+            System.Drawing.Bitmap spot = new Bitmap(@"..\..\image\flag.png");
+            System.Drawing.Bitmap hazard = new Bitmap(@"..\..\image\hazard.png");
+            System.Drawing.Bitmap colorblob1 = new Bitmap(@"..\..\image\closed_box.png");
+            System.Drawing.Bitmap colorblob2 = new Bitmap(@"..\..\image\coin.png");
             System.Drawing.Bitmap robot0 = new Bitmap(@"..\..\image\sion0.png");
             System.Drawing.Bitmap robot1 = new Bitmap(@"..\..\image\sion1.png");
             System.Drawing.Bitmap robot2 = new Bitmap(@"..\..\image\sion2.png");
             System.Drawing.Bitmap robot3 = new Bitmap(@"..\..\image\sion3.png");
+            System.Drawing.Bitmap flag2 = new Bitmap(@"..\..\image\flag2.png");
 
             //mapPictureBox.Image = bitmap;
 
@@ -72,6 +73,12 @@ namespace WindowsFormsApp1
                             //e.Graphics.FillRectangle(new SolidBrush(Color.Green), Region);
                             //e.Graphics.DrawRectangle(new Pen(Color.DarkGray), Region);
                             e.Graphics.DrawImage(colorblob2, Region);
+                            break;
+                        case 5:
+                            Region = new Rectangle(new Point(j * width, i * height), new Size(width, height));
+                            //e.Graphics.FillRectangle(new SolidBrush(Color.Green), Region);
+                            //e.Graphics.DrawRectangle(new Pen(Color.DarkGray), Region);
+                            e.Graphics.DrawImage(flag2, Region);
                             break;
                     }
                 }

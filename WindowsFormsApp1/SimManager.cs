@@ -102,6 +102,8 @@ namespace WindowsFormsApp1
 
                 if (MapManager.get_current().First == MapManager.get_spot()[0].First && MapManager.get_current().Second == MapManager.get_spot()[0].Second)
                 {
+                    // 지나가면 깃발 바꾸기
+                    MapManager.get_map()[MapManager.get_spot()[0].First, MapManager.get_spot()[0].Second] = 5;
                     MapManager.get_spot().RemoveAt(0);
                     // 끝났으면
                     if (VerifyEnd())
