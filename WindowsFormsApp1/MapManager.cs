@@ -8,52 +8,45 @@ namespace WindowsFormsApp1
 {
     static class MapManager
     {
-        public static int setMapInfo(int a,int b,string hazardPos,string colorBlobPos) {
-            return Map.setMapInfo(a, b, hazardPos, colorBlobPos);
+        public static void setMapInfo(int a,int b,string hazardPos) {
+            switch(Map.setMapInfo(a, b, hazardPos))
+            {
+                case 0:
+                    // 정상
+                    break;
+                case 1:
+                    // 위험지역 오류
+                    break;
+            }
+
         }
-        public static int setPathInfo(int a,int b,string spotPos) {
-            return Map.setPathInfo(a, b, spotPos);
+        public static void setPathInfo(int a,int b,string spotPos) {
+            switch (Map.setPathInfo(a, b, spotPos))
+            {
+                case 0:
+                    // 정상
+                    break;
+                case 1:
+                    // 시작점 오류
+                    break;
+                case 2:
+                    // 주요지점 오류
+                    break;
+            }
         }
-        public static void addColorBlob(bool isColor) {
-            Map.addColorBlob(isColor);
+        public static void addColorBlob(bool[] bColorBlob) {
+            Map.addColorBlob(bColorBlob);
         }
         public static void addHazard(bool newHazard) {
             Map.addHazard(newHazard);
         }
-        public static int CreatePath() {
-            return Map.createPath();
+        public static void CreatePath() {
+            if (Map.createPath()==1)
+            {
+                // 경로 없음
+                // 디스플레이 해주고 종료
+            }
         }
-        public static int[,] get_map()
-        {
-            return Map.map;
-        }
-        public static List<Tile> get_path()
-        {
-            return Map.path;
-        }
-        public static int get_head()
-        {
-            return Map.head;
-        }
-        public static void set_head(int head)
-        {
-            Map.head=head;
-        }
-        public static Pair<int,int> get_current()
-        {
-            return Map.current;
-        }
-        public static void set_current(Pair<int,int> map)
-        {
-            Map.current=map;
-        }
-        public static List<Pair<int,int>> get_spot()
-        {
-            return Map.spot;
-        }
-        public static bool isInMap(Pair<int,int> pos)
-        {
-            return Map.isInMap(pos);
-        }
+
     }
 }

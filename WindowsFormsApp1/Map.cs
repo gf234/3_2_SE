@@ -12,15 +12,15 @@ namespace WindowsFormsApp1
         /////////////////////////////////////////////////멤버 변수
 
         // 아무것도 없으면 : 0 위험지역 : 1 탐색 지점 : 2  입력 받은 컬러블럽 : 3  지나간 컬러블럽 : 4
-        public static int[,] map { get; set; }
+        public static int[,] map;
         // 경로는 노드의 스택 형식 ...
-        public static List<Tile> path { get; set; }
+        public static List<Tile> path = new List<Tile>();
         // 헤드방향은 기본으로 위쪽( 0 )
-        public static int head { get; set; }
+        public static int head = 0;
         // current : 현재 위치 ...
-        public static Pair<int, int> current { get; set; }
+        public static Pair<int, int> current;
         // 주요 지점 ...
-        public static List<Pair<int, int>> spot { get; set; }
+        public static List<Pair<int, int>> spot = new List<Pair<int, int>>();
 
 
         //////////////////////////////////////////////////멤버 함수
@@ -29,7 +29,7 @@ namespace WindowsFormsApp1
         public static int setMapInfo(int a, int b, string hazardPos, string colorBlobPos)
         {
             map = new int[a, b];
-            head = 0;
+
             // 위험지역 띄어쓰기로 구분해서 저장
             string[] hazardList = hazardPos.Split(' ');
             // 짝수개가 아니면 에러
@@ -108,7 +108,7 @@ namespace WindowsFormsApp1
                     return 2;
                 }
             }
-            spot = new List<Pair<int, int>>();
+
             // 좌표로 받기 위해 2개 씩 이동하면서 저장
             for (int i = 0; i < spotList.Length; i += 2)
             {
