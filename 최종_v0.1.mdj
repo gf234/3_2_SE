@@ -31267,9 +31267,9 @@
 											"font": "Arial;13;1",
 											"left": 401,
 											"top": 183,
-											"width": 79.44091796875,
+											"width": 85.95361328125,
 											"height": 13,
-											"text": "SIM"
+											"text": "SimController"
 										},
 										{
 											"_type": "LabelView",
@@ -31302,7 +31302,7 @@
 									"font": "Arial;13;0",
 									"left": 396,
 									"top": 176,
-									"width": 89.44091796875,
+									"width": 95.95361328125,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAFu1ctYgaBC1uo="
@@ -31386,7 +31386,7 @@
 							"containerChangeable": true,
 							"left": 376,
 							"top": 176,
-							"width": 109.44091796875,
+							"width": 115.95361328125,
 							"height": 45,
 							"nameCompartment": {
 								"$ref": "AAAAAAFu1ctYgaBBVBg="
@@ -31899,7 +31899,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFFxl6vKz9YEJg="
 					},
-					"name": "SIM",
+					"name": "SimController",
 					"ownedElements": [
 						{
 							"_type": "UMLDependency",
