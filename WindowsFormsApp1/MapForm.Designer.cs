@@ -155,7 +155,7 @@
             this.colorBlobPositionBox.Name = "colorBlobPositionBox";
             this.colorBlobPositionBox.Size = new System.Drawing.Size(372, 28);
             this.colorBlobPositionBox.TabIndex = 8;
-            this.colorBlobPositionBox.Text = "1 0 2 3 4 6";
+            this.colorBlobPositionBox.Text = "1 0 2 2 4 6";
             this.colorBlobPositionBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ColorBlobPositionBox_KeyPress);
             // 
             // MapForm

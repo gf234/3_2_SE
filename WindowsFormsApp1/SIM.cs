@@ -28,7 +28,7 @@ namespace WindowsFormsApp1
         public Sim()
         {
         }
-        float errRate = 0.05f;
+        float errRate = 0.10f;
         int head = 0;
         // 현재위치를 심이 받아와야해
         Pair<int, int> cur = MapManager.getCurrent();
