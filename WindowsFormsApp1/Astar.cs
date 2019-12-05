@@ -7,6 +7,7 @@ using System.Numerics;
 
 namespace WindowsFormsApp1
 {
+    // A* 알고리즘 계산을 위한 한 칸을 나타내는 클래스
     public class Tile
     {
         public int X { get; set; }
@@ -36,6 +37,7 @@ namespace WindowsFormsApp1
         }
     }
 
+    // 최단 경로를 찾는 A* 알고리즘
     class Astar
     {       
         public static List<Tile> createPath(Pair<int, int> start, Pair<int, int> end, int[,] area)
@@ -48,7 +50,7 @@ namespace WindowsFormsApp1
             List<Tile> path = new List<Tile>();
             Tile startTile = null;
             Tile targetTile = null;
-            // Initial values
+            // 값 초기화
             for (int i = 0; i < area.GetLength(0); i++)
             {
                 List<Tile> t = new List<Tile>();
@@ -71,7 +73,7 @@ namespace WindowsFormsApp1
             openList.Add(startTile);
             if (targetTile == null)
             {
-                // can not found target
+                // 타겟을 못찾는 경우
                 return null;
             }
             Tile currentTile = null;
@@ -92,7 +94,7 @@ namespace WindowsFormsApp1
                 {
                     for (int j = 0; j < area.GetLength(1); j++)
                     {
-                        //// 4 way
+                        // 상, 하, 좌, 우 탐색
                         bool near = (Math.Abs(currentTile.X - tiles[i][j].X) <= 1)
                                  && (Math.Abs(currentTile.Y - tiles[i][j].Y) <= 1)
                                  && (currentTile.Y == tiles[i][j].Y || currentTile.X == tiles[i][j].X);
@@ -119,7 +121,7 @@ namespace WindowsFormsApp1
             } while (currentTile != null);
             if (currentTile != targetTile)
             {
-                // can not found root
+                // 길을 찾지 못한는 경우
                 return null;
             }
             do

@@ -10,7 +10,6 @@ namespace WindowsFormsApp1
     static class Map
     {
         /////////////////////////////////////////////////멤버 변수
-
         // 아무것도 없으면 : 0 위험지역 : 1 탐색 지점 : 2  입력 받은 컬러블럽 : 3  지나간 컬러블럽 : 4 지나간 탐색 지점 : 5
         public static int[,] map { get; set; }
         // 경로는 노드의 스택 형식 ...
@@ -22,9 +21,7 @@ namespace WindowsFormsApp1
         // 주요 지점 ...
         public static List<Pair<int, int>> spot { get; set; }
 
-
         //////////////////////////////////////////////////멤버 함수
-
         // 맵 크기 입력 받아서 2차원 배열 생성하는 함수.
         public static int setMapInfo(int a, int b, string hazardPos, string colorBlobPos)
         {
