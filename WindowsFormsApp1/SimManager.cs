@@ -61,7 +61,6 @@ namespace WindowsFormsApp1
                 // StartForm에 위험지역 디스플레이 띄우기
                 startForm.display();
                 Thread.Sleep(sleepTime);
-                MapManager.CreatePath();
                 return false;
             }
             else
@@ -72,12 +71,15 @@ namespace WindowsFormsApp1
             bool iscolor = simInterface.getColorBlobSensor();
             MapManager.addColorBlob(iscolor);
         }
-        public void compensateMotion()
+        public bool compensateMotion()
         {
             // 맵에게 알리는 코드
-            MapManager.CreatePath();
+            if (MapManager.CreatePath() == 0)
+                return true;
+            else
+                return false;
         }
-        public void keyPointSearch(StartForm startForm)
+        public bool keyPointSearch(StartForm startForm)
         {
             while (true)
             {
@@ -85,7 +87,11 @@ namespace WindowsFormsApp1
                 // 경로 == List<Tile> 형식 --> path[i].X  :  행  ,  path[i].Y   :  열  <-- 이렇게 접근 가능 
                 rotation(startForm);
                 if (!avoidingHazard(startForm)) // 위험지역 나오면 다시 로테이션부터 시작
+                {
+                    if (MapManager.CreatePath() == 1)
+                        return false;
                     continue;
+                }
                 detectingColorBlob();
                 // 오작동 했다면
                 bool moveCorrect = simInterface.moveForward();
@@ -94,15 +100,14 @@ namespace WindowsFormsApp1
                 MapManager.getPath().RemoveAt(0); // 제대로 움직였으니 첫번째 패스 삭제
                 if (!moveCorrect)
                 {
-                    compensateMotion(); // 경로 재설정
-                    
+                    if (!compensateMotion()) // 경로 재설정
+                        return false;
                 }
-                // 스팟에 도착 안했으면 계속 ... 
-                // 스팟에 도착 했으면(현재 경로의 끝) -> 스팟 리스트에서 맨앞에 있는거 삭제(도착했으니까) -> 다음 스팟이 없으면 -> 끝
 
+                // 스팟에 도착했는지 검사
                 if (MapManager.getCurrent().First == MapManager.getSpot()[0].First && MapManager.getCurrent().Second == MapManager.getSpot()[0].Second)
                 {
-                    // 지나가면 깃발 바꾸기
+                    // 스팟 지나가면 깃발 바꾸기
                     MapManager.getMap()[MapManager.getSpot()[0].First, MapManager.getSpot()[0].Second] = 5;
                     MapManager.getSpot().RemoveAt(0);
                     // 끝났으면
@@ -118,7 +123,7 @@ namespace WindowsFormsApp1
                 }
                 
             }
-            
+            return true;
         }
 
         // 모두 끝났는지 확인

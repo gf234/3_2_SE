@@ -77,7 +77,7 @@ namespace WindowsFormsApp1
             e.Graphics.DrawImage(robot0, Region);
 
             // 화살표 표시
-            switch (Map.head)
+            switch (MapManager.getHead())
             {
                 case 0:
                     e.Graphics.DrawImage(robot0, Region);
@@ -94,13 +94,15 @@ namespace WindowsFormsApp1
             }
         }
         
+        // 비동기 함수
         public async Task start()
         {
             await Task.Run(() =>
             {
                 Thread.Sleep(1000); // 1초쉬고 시작
                 SimManager simManager = new SimManager();
-                simManager.keyPointSearch(this);
+                if (!simManager.keyPointSearch(this))
+                    MessageBox.Show("경로 없음!");
                 MessageBox.Show("탐색 완료!");
             });
         }

@@ -9,23 +9,18 @@ namespace WindowsFormsApp1
 {
     static class Map
     {
-        /////////////////////////////////////////////////멤버 변수
         // 아무것도 없으면 : 0 위험지역 : 1 탐색 지점 : 2  입력 받은 컬러블럽 : 3  지나간 컬러블럽 : 4 지나간 탐색 지점 : 5
         public static int[,] map { get; set; }
-        // 경로는 노드의 스택 형식 ...
         public static List<Tile> path { get; set; }
-        // 헤드방향은 기본으로 위쪽( 0 )
         public static int head { get; set; }
-        // current : 현재 위치 ...
         public static Pair<int, int> current { get; set; }
-        // 주요 지점 ...
         public static List<Pair<int, int>> spot { get; set; }
 
-        //////////////////////////////////////////////////멤버 함수
         // 맵 크기 입력 받아서 2차원 배열 생성하는 함수.
         public static int setMapInfo(int a, int b, string hazardPos, string colorBlobPos)
         {
             map = new int[a, b];
+            // 헤드방향은 기본으로 위쪽( 0 )
             head = 0;
             // 위험지역 띄어쓰기로 구분해서 저장
             string[] hazardList = hazardPos.Split(' ');
